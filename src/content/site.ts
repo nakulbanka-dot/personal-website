@@ -111,6 +111,21 @@ export const showcase: Showcase[] = [
     stat: { value: 5, suffix: "+", label: "company executives consulted" },
   },
   {
+    slug: "debate",
+    org: "Speech & Debate",
+    role: "Public Forum Captain",
+    period: "Aug 2023 — May 2026",
+    category: "Debate",
+    summary:
+      "One of two Public Forum captains leading a team of 50+, competing at the national level while rebuilding the program's size from the inside.",
+    highlights: [
+      "Ranked T70 nationally and T10 at the California State Championships",
+      "Grew team membership by 350%",
+      "Now coaching 150+ students across three debate academies",
+    ],
+    stat: { value: 5, suffix: "x", label: "TOC bids — the most in event history" },
+  },
+  {
     slug: "muwekma-ohlone",
     org: "Muwekma Ohlone Tribe",
     role: "Media and Marketing Intern",
@@ -174,11 +189,6 @@ export const otherExperience = [
     org: "Debate Coach — Golden State Academy, Brooks Debate Institute, Stratford",
     detail:
       "May 2026 — Present. Coached 150+ students through mock debates, drills, topic analysis and research lectures. Took 6+ middle school teams to the top 8 of fields of 60–70 at Cal Berkeley, Stanford and UCLA.",
-  },
-  {
-    org: "Speech & Debate — Public Forum Captain",
-    detail:
-      "Aug 2023 — May 2026. Grew membership 350% and led a team of 50+ students as one of two Public Forum captains.",
   },
 ];
 
