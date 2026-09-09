@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav, site } from "@/content/site";
 import { ThemeToggle } from "./theme-toggle";
+import { ResumeButton } from "./resume-button";
 
 export function Nav() {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export function Nav() {
           {site.name}
         </Link>
 
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-4 sm:gap-6">
           {nav.map((item) => {
             const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
@@ -33,6 +34,7 @@ export function Nav() {
               </Link>
             );
           })}
+          <ResumeButton compact />
           <ThemeToggle />
         </nav>
       </div>

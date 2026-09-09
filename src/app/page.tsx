@@ -1,31 +1,35 @@
 import Link from "next/link";
-import { ExperienceRow } from "@/components/experience-row";
-import { awards, experience, intro, site } from "@/content/site";
+import { Showcase } from "@/components/showcase";
+import { Ticker } from "@/components/ticker";
+import { Reveal } from "@/components/reveal";
+import { ResumeButton } from "@/components/resume-button";
+import { intro, photos, showcase, site } from "@/content/site";
 
 export default function Home() {
-  const featured = experience.filter((item) => item.featured);
-
   return (
-    <div className="mx-auto max-w-3xl px-6">
-      <section className="py-20 sm:py-28">
-        <p className="label">{site.location}</p>
-        <h1 className="mt-4 font-display text-5xl leading-[1.05] tracking-tight sm:text-6xl">
+    <div>
+      <section className="mx-auto max-w-3xl px-6 pt-20 pb-16 sm:pt-28">
+        <p className="label fade-up">{site.location}</p>
+
+        <h1
+          className="fade-up mt-4 font-display text-6xl leading-[0.95] tracking-tight sm:text-8xl"
+          style={{ animationDelay: "80ms" }}
+        >
           {site.name}
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{intro}</p>
-        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-          <Link
-            href="/experience"
-            className="text-sm text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
-          >
-            What I&apos;ve worked on
-          </Link>
-          <Link
-            href="/photography"
-            className="text-sm text-muted underline decoration-border underline-offset-4 transition-colors hover:text-accent"
-          >
-            Photography
-          </Link>
+
+        <p
+          className="fade-up mt-8 max-w-xl text-lg leading-relaxed text-muted"
+          style={{ animationDelay: "180ms" }}
+        >
+          {intro}
+        </p>
+
+        <div
+          className="fade-up mt-10 flex flex-wrap items-center gap-4"
+          style={{ animationDelay: "280ms" }}
+        >
+          <ResumeButton />
           <a
             href={`mailto:${site.email}`}
             className="text-sm text-muted underline decoration-border underline-offset-4 transition-colors hover:text-accent"
@@ -35,55 +39,67 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12">
-        <div className="flex items-baseline justify-between">
-          <h2 className="label">Selected work</h2>
-          <Link
-            href="/experience"
-            className="text-sm text-muted transition-colors hover:text-accent"
+      <div className="fade-up" style={{ animationDelay: "380ms" }}>
+        <Ticker />
+      </div>
+
+      <section className="mx-auto max-w-3xl px-6 pt-16">
+        <Reveal>
+          <div className="flex items-baseline justify-between">
+            <h2 className="label">Selected work</h2>
+            <span className="label">
+              01 — {String(showcase.length).padStart(2, "0")}
+            </span>
+          </div>
+          <p className="mt-3 max-w-md text-sm text-muted">
+            Hover any entry to read it.
+          </p>
+        </Reveal>
+
+        <Showcase />
+      </section>
+
+      <section className="mx-auto max-w-3xl px-6 py-16">
+        <Reveal>
+          <div className="flex items-baseline justify-between">
+            <h2 className="label">Photography</h2>
+            <Link
+              href="/photography"
+              className="text-sm text-muted transition-colors hover:text-accent"
+            >
+              View portfolio →
+            </Link>
+          </div>
+
+          <div className="mt-6 grid grid-cols-3 gap-3">
+            {photos.slice(0, 3).map((photo) => (
+              <Link
+                key={photo.id}
+                href="/photography"
+                className="group relative aspect-square overflow-hidden border border-border bg-surface"
+              >
+                <span className="absolute inset-0 bg-gradient-to-br from-surface to-background transition-transform duration-500 group-hover:scale-105" />
+                <span className="label absolute bottom-2 left-3">{photo.location}</span>
+              </Link>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="mx-auto max-w-3xl border-t border-border px-6 py-16">
+        <Reveal>
+          <h2 className="font-display text-4xl tracking-tight">Let&apos;s talk</h2>
+          <p className="mt-3 max-w-lg leading-relaxed text-muted">
+            I&apos;m always up for a conversation — about research, advocacy, or something
+            you&apos;re working on. Email is the fastest way to reach me.
+          </p>
+          <a
+            href={`mailto:${site.email}`}
+            className="mt-6 inline-block font-display text-2xl text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
           >
-            Everything →
-          </Link>
-        </div>
-        <div className="mt-6">
-          {featured.map((item) => (
-            <ExperienceRow key={item.slug} item={item} />
-          ))}
-        </div>
-      </section>
-
-      <section className="border-t border-border py-12">
-        <h2 className="label">Recognition</h2>
-        <ul className="mt-6 space-y-3">
-          {awards.slice(0, 4).map((award) => (
-            <li key={award} className="flex gap-3 leading-relaxed">
-              <span aria-hidden="true" className="text-accent">
-                —
-              </span>
-              <span className="text-muted">{award}</span>
-            </li>
-          ))}
-        </ul>
-        <Link
-          href="/about"
-          className="mt-6 inline-block text-sm text-muted transition-colors hover:text-accent"
-        >
-          Full list →
-        </Link>
-      </section>
-
-      <section className="border-t border-border py-16">
-        <h2 className="font-display text-3xl tracking-tight">Let&apos;s talk</h2>
-        <p className="mt-3 max-w-lg leading-relaxed text-muted">
-          I&apos;m always up for a conversation — about research, a project, or something
-          you&apos;re working on. Email is the fastest way to reach me.
-        </p>
-        <a
-          href={`mailto:${site.email}`}
-          className="mt-6 inline-block font-display text-2xl text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
-        >
-          {site.email}
-        </a>
+            {site.email}
+          </a>
+        </Reveal>
       </section>
     </div>
   );
