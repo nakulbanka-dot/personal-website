@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { bio, currently, links, site } from "@/content/site";
+import { awards, bio, currently, links, site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${site.name} — ${site.role} based in ${site.location}.`,
+  description: `About ${site.name} — ${site.role} in ${site.location}.`,
 };
 
 export default function About() {
@@ -12,7 +12,7 @@ export default function About() {
       <section className="py-20">
         <p className="label">About</p>
         <h1 className="mt-4 font-display text-4xl leading-tight tracking-tight sm:text-5xl">
-          {site.role} in {site.location}
+          Economics, advocacy, and the argument between them
         </h1>
 
         <div className="mt-8 max-w-prose space-y-5 text-[1.0625rem] leading-relaxed text-muted">
@@ -31,6 +31,20 @@ export default function About() {
                 —
               </span>
               <span className="text-muted">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="border-t border-border py-12">
+        <h2 className="label">Awards & honors</h2>
+        <ul className="mt-6 space-y-3">
+          {awards.map((award) => (
+            <li key={award} className="flex gap-3 leading-relaxed">
+              <span aria-hidden="true" className="text-accent">
+                —
+              </span>
+              <span className="text-muted">{award}</span>
             </li>
           ))}
         </ul>
