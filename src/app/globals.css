@@ -87,6 +87,15 @@
   }
 }
 
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -120,6 +129,21 @@
   }
   .marquee:hover .marquee-track {
     animation-play-state: paused;
+  }
+
+  /* Slow sweep across the research array. */
+  .scanline::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    height: 45%;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      color-mix(in oklab, var(--accent) 7%, transparent),
+      transparent
+    );
+    animation: scan 7s ease-in-out infinite;
   }
 
   /* Cursor-tracked glow. --mx/--my are set on the element by JS. */

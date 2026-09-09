@@ -3,39 +3,44 @@ import { Showcase } from "@/components/showcase";
 import { Ticker } from "@/components/ticker";
 import { Reveal } from "@/components/reveal";
 import { ResumeButton } from "@/components/resume-button";
+import { ResearchArray } from "@/components/research-array";
 import { intro, photos, showcase, site } from "@/content/site";
 
 export default function Home() {
   return (
     <div>
-      <section className="mx-auto max-w-3xl px-6 pt-20 pb-16 sm:pt-28">
-        <p className="label fade-up">{site.location}</p>
+      <section className="relative isolate min-h-[88vh] overflow-hidden border-b border-border">
+        <ResearchArray />
 
-        <h1
-          className="fade-up mt-4 font-display text-6xl leading-[0.95] tracking-tight sm:text-8xl"
-          style={{ animationDelay: "80ms" }}
-        >
-          {site.name}
-        </h1>
+        <div className="pointer-events-none relative z-10 mx-auto flex min-h-[88vh] max-w-3xl flex-col justify-center px-6 py-20">
+          <p className="label fade-up">{site.location}</p>
 
-        <p
-          className="fade-up mt-8 max-w-xl text-lg leading-relaxed text-muted"
-          style={{ animationDelay: "180ms" }}
-        >
-          {intro}
-        </p>
-
-        <div
-          className="fade-up mt-10 flex flex-wrap items-center gap-4"
-          style={{ animationDelay: "280ms" }}
-        >
-          <ResumeButton />
-          <a
-            href={`mailto:${site.email}`}
-            className="text-sm text-muted underline decoration-border underline-offset-4 transition-colors hover:text-accent"
+          <h1
+            className="fade-up mt-4 font-display text-6xl leading-[0.95] tracking-tight sm:text-8xl"
+            style={{ animationDelay: "80ms" }}
           >
-            Get in touch
-          </a>
+            {site.name}
+          </h1>
+
+          <p
+            className="fade-up mt-8 max-w-xl text-lg leading-relaxed text-muted"
+            style={{ animationDelay: "180ms" }}
+          >
+            {intro}
+          </p>
+
+          <div
+            className="fade-up pointer-events-auto mt-10 flex flex-wrap items-center gap-4"
+            style={{ animationDelay: "280ms" }}
+          >
+            <ResumeButton />
+            <a
+              href={`mailto:${site.email}`}
+              className="text-sm text-muted underline decoration-border underline-offset-4 transition-colors hover:text-accent"
+            >
+              Get in touch
+            </a>
+          </div>
         </div>
       </section>
 
