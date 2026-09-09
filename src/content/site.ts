@@ -38,6 +38,8 @@ export const intro =
 export type Showcase = {
   slug: string;
   org: string;
+  /** Short label for the constellation node — keep it to ~2 words. */
+  short: string;
   role: string;
   period: string;
   category: string;
@@ -55,6 +57,7 @@ export type Showcase = {
 export const showcase: Showcase[] = [
   {
     slug: "svb-research",
+    short: "SVB Research",
     org: "Silicon Valley Bank Research",
     role: "Independent Researcher, under Prof. Nikunj Kapadia — UMass Amherst",
     period: "Jul 2024 — Feb 2025",
@@ -70,6 +73,7 @@ export const showcase: Showcase[] = [
   },
   {
     slug: "investment-club",
+    short: "Investment Club",
     org: "Investment Club",
     role: "President",
     period: "Aug 2024 — May 2026",
@@ -84,6 +88,7 @@ export const showcase: Showcase[] = [
   },
   {
     slug: "3i-partners",
+    short: "3i Partners",
     org: "3i Partners",
     role: "Venture Capital Research Intern",
     period: "Apr 2025 — Oct 2025",
@@ -98,6 +103,7 @@ export const showcase: Showcase[] = [
   },
   {
     slug: "usc-marshall",
+    short: "USC Marshall",
     org: "USC Marshall School of Business",
     role: "Research Intern, under Prof. Arvind Bhambri",
     period: "May 2025 — Nov 2025",
@@ -112,6 +118,7 @@ export const showcase: Showcase[] = [
   },
   {
     slug: "debate",
+    short: "Speech & Debate",
     org: "Speech & Debate",
     role: "Public Forum Captain",
     period: "Aug 2023 — May 2026",
@@ -127,6 +134,7 @@ export const showcase: Showcase[] = [
   },
   {
     slug: "muwekma-ohlone",
+    short: "Muwekma Ohlone",
     org: "Muwekma Ohlone Tribe",
     role: "Media and Marketing Intern",
     period: "Feb 2025 — May 2026",
