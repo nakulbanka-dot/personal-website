@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Showcase } from "@/components/showcase";
+import { Constellation } from "@/components/constellation";
 import { Ticker } from "@/components/ticker";
 import { Reveal } from "@/components/reveal";
 import { ResumeButton } from "@/components/resume-button";
@@ -8,7 +8,7 @@ import { intro, photos, showcase, site } from "@/content/site";
 export default function Home() {
   return (
     <div>
-      <section className="mx-auto max-w-3xl px-6 pt-20 pb-16 sm:pt-28">
+      <section className="mx-auto max-w-3xl px-6 pt-20 pb-12 sm:pt-24">
         <p className="label fade-up">{site.location}</p>
 
         <h1
@@ -43,8 +43,8 @@ export default function Home() {
         <Ticker />
       </div>
 
-      <section className="mx-auto max-w-3xl px-6 pt-16">
-        <Reveal>
+      <section className="px-6 pt-14 pb-4">
+        <div className="mx-auto max-w-3xl">
           <div className="flex items-baseline justify-between">
             <h2 className="label">Selected work</h2>
             <span className="label">
@@ -52,11 +52,13 @@ export default function Home() {
             </span>
           </div>
           <p className="mt-3 max-w-md text-sm text-muted">
-            Hover any entry to read it.
+            Six nodes, six chapters. Hover one to open it.
           </p>
-        </Reveal>
+        </div>
 
-        <Showcase />
+        <div className="mx-auto mt-4 max-w-6xl">
+          <Constellation />
+        </div>
       </section>
 
       <section className="mx-auto max-w-3xl px-6 py-16">
